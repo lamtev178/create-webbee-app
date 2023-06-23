@@ -1,0 +1,45 @@
+{
+  "name": "create-webbee-app",
+  "version": "1.0.0",
+  "description": "Create web-bee apps with one command",
+  "main": "index.ts",
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lamtev178/create-webbee-app.git"
+  },
+  "files": [
+    "./dist/**"
+  ],
+  "bin": {
+    "create-webbee-app": "./dist/index.js"
+  },
+  "scripts": {
+    "start": "ts-node ./index.ts",
+    "start:flags": "ts-node ./index.ts testDir --use-yarn --tailwind true",
+    "build": "npm run clean && npm run compile && npm run cp:templates",
+    "cp:templates": "shx cp -r ./templates/*starter ./dist/templates/",
+    "clean": "shx rm -rf ./dist",
+    "compile": "tsc -p tsconfig.json"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@types/cpx": "^1.5.2",
+    "@types/cross-spawn": "^6.0.2",
+    "@types/node": "^20.2.5",
+    "@types/prompts": "^2.4.4",
+    "chalk": "2.4.2",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.8.8",
+    "prompts": "^2.4.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.3"
+  },
+  "dependencies": {
+    "commander": "^11.0.0",
+    "cpy": "7.3.0",
+    "cross-spawn": "^7.0.3",
+    "shx": "^0.3.4"
+  }
+}
