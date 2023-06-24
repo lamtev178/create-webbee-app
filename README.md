@@ -1,4 +1,4 @@
-# Create wen-bee App
+# Create web-bee App
 
 The easiest way to get started with our templates is by using `create-webbee-app`. This CLI tool enables you to quickly start building a new application, with everything set up for you.
 
