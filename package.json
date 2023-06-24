@@ -1,6 +1,6 @@
 {
   "name": "create-webbee-app",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Create web-bee apps with one command",
   "main": "index.ts",
   "author": "",
