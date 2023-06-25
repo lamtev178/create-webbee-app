@@ -44,7 +44,7 @@ export default async function copyFiles(
     parents: true,
     cwd: templatePath,
     rename: (name) => {
-      if (hiddenFiles.indexOf(name) !== -1) return '.'.concat(name);
+      if (hiddenFiles.indexOf(name) !== -1 || name === 'gitignore') return '.'.concat(name);
 
       return name;
     },
