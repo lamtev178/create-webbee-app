@@ -5,6 +5,9 @@ import { installTemplate } from './templates/index';
 import path from 'path';
 import fs from 'fs';
 import { getOnline } from './helpers/get-online';
+import { isWriteable } from './helpers/is-writeable';
+import { makeDir } from './helpers/make-dir';
+import { isFolderEmpty } from './helpers/is-folder-empty';
 
 export async function createApp({
   appPath,
@@ -26,10 +29,25 @@ export async function createApp({
   importAlias: string;
 }): Promise<void> {
   const root = path.resolve(appPath);
-  const appName = path.basename(root);
+
   const useYarn = packageManager === 'yarn';
   const isOnline = !useYarn || (await getOnline());
   const originalDirectory = process.cwd();
+
+  if (!(await isWriteable(path.dirname(root)))) {
+    console.error('The application path is not writable, please check folder permissions and try again.');
+    console.error('It is likely you do not have write permissions for this folder.');
+    process.exit(1);
+  }
+
+  const appName = path.basename(root);
+
+  await makeDir(root);
+  if (!isFolderEmpty(root, appName)) {
+    process.exit(1);
+  }
+
+  process.chdir(root);
 
   let hasPackageJson = false;
 
@@ -48,8 +66,6 @@ export async function createApp({
 
   const packageJsonPath = path.join(root, 'package.json');
   hasPackageJson = fs.existsSync(packageJsonPath);
-
-  console.log('hasPackageJson', hasPackageJson);
 
   if (tryGitInit(root)) {
     console.log('Initialized a git repository to', root);

@@ -62,7 +62,6 @@ const program = new Commander.Command(packageJson.name)
 
   Initialize with turbo config.
 `,
-    true,
   )
   .option(
     '--use-npm',
