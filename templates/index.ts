@@ -50,7 +50,7 @@ export const installTemplate = async ({
   const installFlags = { packageManager, isOnline };
   const dependencies: string[] = [];
   if (css === 'css-in-js') {
-    dependencies.push('styled-components');
+    dependencies.push('styled-components@latest');
   } else {
     dependencies.push('sass');
     if (template === 'react-webpack-starter') {
