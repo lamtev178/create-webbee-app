@@ -9,6 +9,6 @@ module.exports = {
   bracketSpacing: true,
   arrowParens: 'always',
   endOfLine: 'lf',
-  importOrder: ['@sut/frontend-shared', '^[~.]'],
+  importOrder: ['^[~.]'],
   importOrderSeparation: true,
 };

@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "@simplesmiler/taxios-generate": "0.2.12",
+    "@trivago/prettier-plugin-sort-imports": "^2.0.2",
     "@svgr/webpack": "6.2.1",
     "@types/react": "17.0.38",
     "@types/react-dom": "17.0.11",
