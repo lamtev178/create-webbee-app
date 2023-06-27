@@ -95,6 +95,7 @@ const program = new Commander.Command(packageJson.name)
 `,
   )
   .allowUnknownOption()
+  .allowExcessArguments()
   .parse(process.argv);
 const options = program.opts();
 const packageManager = !!options.useNpm
@@ -106,22 +107,6 @@ const packageManager = !!options.useNpm
   : getPkgManager();
 
 async function run(): Promise<void> {
-  if (typeof projectPath === 'string') {
-    projectPath = projectPath.trim();
-  }
-
-  if (!projectPath) {
-    const res = await prompts({
-      type: 'text',
-      name: 'path',
-      message: 'What is your project named?',
-      initial: 'my-app',
-    });
-    if (typeof res.path === 'string') {
-      projectPath = res.path.trim();
-    }
-  }
-
   const resolvedProjectPath = path.resolve(projectPath);
   const root = path.resolve(resolvedProjectPath);
   const appName = path.basename(root);
@@ -210,7 +195,7 @@ async function run(): Promise<void> {
 
   await createApp({
     appPath: resolvedProjectPath,
-    packageManager,
+    packageManager: packageManager,
     turbo: options.turbo,
     template: options.template,
     eslint: options.eslint,
