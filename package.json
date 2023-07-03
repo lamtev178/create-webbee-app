@@ -1,6 +1,6 @@
 {
   "name": "create-webbee-app",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Create web-bee apps with one command",
   "main": "index.ts",
   "author": "",
@@ -16,7 +16,7 @@
     "create-webbee-app": "./dist/index.js"
   },
   "scripts": {
-    "start": "ts-node ./index.ts",
+    "start": "ts-node ./index.ts myDir",
     "start:flags": "ts-node ./index.ts testDir --use-yarn --tailwind true",
     "build": "npm run clean && npm run compile && npm run cp:templates",
     "cp:templates": "shx cp -r ./templates/*starter ./dist/templates/",

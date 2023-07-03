@@ -202,7 +202,7 @@ module.exports = (env, argv) => {
     devServer: {
       contentBase: paths.appBuild,
       host: env.HOST || 'localhost',
-      port: env.PORT || 9000,
+      port: env.PORT || 3000,
       historyApiFallback: true,
       allowedHosts: ['.ngrok.io'], // allow host ngrok
       inline: true,

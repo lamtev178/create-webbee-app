@@ -1,4 +1,4 @@
-import react from '@vitejs/plugin-react';
+import react from "@vitejs/plugin-react-swc";
 import { resolve } from 'path';
 import { defineConfig, loadEnv } from 'vite';
 import svgrPlugin from 'vite-plugin-svgr';
@@ -15,7 +15,7 @@ export default ({ mode }: { mode: string }) => {
     plugins: [react(), svgrPlugin(), tsconfigPaths()],
     root,
     server: {
-      port: +VITE_APP_PORT || 9000,
+      port: +VITE_APP_PORT || 3000,
       proxy: {
         [VITE_API_BASE_URL]: {
           target: VITE_API_STAND_URL,

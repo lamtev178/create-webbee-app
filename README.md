@@ -7,7 +7,7 @@ The easiest way to get started with our templates is by using `create-webbee-app
 You can create a new project interactively by running:
 
 ```bash
-npx create-webbee-app
+npx create-webbee-app myDir
 ```
 
 ### Non-interactive

@@ -1,12 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import { MainLink } from '~/components/navigation';
 import { Routes } from '~/lib/routes';
 
 const DefaultLayout: React.FC = ({ children }) => {
   return (
-    <FullHeight>
+    <div>
       <div>
         <div>
           <MainLink to={Routes.HOME}>HOME</MainLink>
@@ -19,12 +18,8 @@ const DefaultLayout: React.FC = ({ children }) => {
         </div>
       </div>
       {children}
-    </FullHeight>
+    </div>
   );
 };
-
-const FullHeight = styled.div`
-  min-height: 100vh;
-`;
 
 export default DefaultLayout;
